@@ -5,7 +5,6 @@ public class main {
 	public static void main(String[] args) throws FileNotFoundException {
 		
 		TubeMap map = new TubeMap("Map.txt");
-		
 		System.out.println(map.getLines());
 		
 		final WeightedMap lines = new WeightedMap(55);
@@ -188,11 +187,65 @@ public class main {
 		lines.addEdge(53, 54, 2);
 		lines.addEdge(54, 53, 2);
 		
+		//Intersections
 		
+		lines.addEdge(0, 46, 1);
+		lines.addEdge(46, 0, 1);
+		lines.addEdge(2, 11, 1);
+		lines.addEdge(11, 2, 1);
+		lines.addEdge(2, 37, 1);
+		lines.addEdge(37, 2, 1);
+		lines.addEdge(11, 37, 1);
+		lines.addEdge(37, 11, 1);
+		lines.addEdge(3, 38, 1);
+		lines.addEdge(38, 3, 1);
+		lines.addEdge(4, 39, 1);
+		lines.addEdge(39, 4, 1);
+		lines.addEdge(5, 17, 1);
+		lines.addEdge(17, 5, 1);
+		lines.addEdge(6, 24, 1);
+		lines.addEdge(24, 6, 1);
+		lines.addEdge(8, 15, 1);
+		lines.addEdge(15, 8, 1);
+		lines.addEdge(9, 48, 1);
+		lines.addEdge(48, 9, 1);
+		lines.addEdge(13, 16, 1);
+		lines.addEdge(16, 13, 1);
+		lines.addEdge(14, 23, 1);
+		lines.addEdge(23, 14, 1);
+		lines.addEdge(14, 32, 1);
+		lines.addEdge(32, 14, 1);
+		lines.addEdge(23, 32, 1);
+		lines.addEdge(32, 23, 1);
+		lines.addEdge(18, 40, 1);
+		lines.addEdge(40, 18, 1);
+		lines.addEdge(20, 26, 1);
+		lines.addEdge(26, 20, 1);
+		lines.addEdge(22, 53, 1);
+		lines.addEdge(53, 22, 1);
+		lines.addEdge(25, 33, 1);
+		lines.addEdge(33, 25, 1);
+		lines.addEdge(25, 41, 1);
+		lines.addEdge(41, 25, 1);
+		lines.addEdge(33, 41, 1);
+		lines.addEdge(41, 33, 1);
+		lines.addEdge(29, 49, 1);
+		lines.addEdge(49, 29, 1);
+		lines.addEdge(30, 35, 1);
+		lines.addEdge(35, 30, 1);
+		lines.addEdge(36, 45, 1);
+		lines.addEdge(45, 36, 1);
+		lines.addEdge(44, 54, 1);
+		lines.addEdge(54, 44, 1);
 		
 		//Print the map
 		lines.print();
-
+		
+		final int [] previous = Dijkstra.dijkstra(lines, 4);
+		for (int nodes = 0; nodes < 55; nodes++){
+			Dijkstra.printJourney(lines, previous, 4, nodes);
+		}
+		
 	}
 
 }

@@ -36,6 +36,25 @@ public class WeightedMap {
 		return edges[start][finish];
 	}
 	
+	public int [] neighbours (int vertex) {
+		int count = 0;
+		for (int i = 0; i < edges[vertex].length; i++){
+			if (edges[vertex][i] > 0){
+				count++;
+			}
+		}
+		
+		final int[] answer = new int [count];
+		count = 0;
+		for (int i = 0; i < edges[vertex].length; i++){
+			if (edges[vertex][i] > 0){
+				answer[count++] = i; 
+			}
+		}
+		
+		return answer;
+	}
+	
 	public void print(){
 		for(int i=0; i< edges.length; i++){
 			System.out.print(labels[i] + " has connection with"  + ": ");
