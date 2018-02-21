@@ -1,3 +1,4 @@
+package dijkstra;
 
 public class WeightedMap {
 
@@ -68,5 +69,4 @@ public class WeightedMap {
 			System.out.println();
 		}
 	}
-	
 }
