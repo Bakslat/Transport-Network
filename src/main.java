@@ -1,5 +1,6 @@
 
 import java.io.FileNotFoundException;
+import java.util.Scanner;
 
 import javafx.event.*;
 import javafx.application.Application;
@@ -8,17 +9,20 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import view.AlertBox;
 import javafx.scene.control.Label;
 
 import dijkstra.Dijkstra;
 import dijkstra.TubeMap;
 import dijkstra.WeightedMap;
+import view.AlertBox;
 
 public class main extends Application implements EventHandler<ActionEvent> {
 	
 	Button goToSearchButton;
 	Button startSearchButton;
 	Button backToMain;
+	Button closeButton;
 	Stage window;
 	Scene mainPage;
 	Scene secondPage;
@@ -276,11 +280,21 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		goToSearchButton = new Button();
 		goToSearchButton.setText("Start using our Search!");
 		goToSearchButton.setOnAction(e -> window.setScene(secondPage));
+		closeButton = new Button();
+		closeButton.setText("Close the Application");
+		
+		closeButton.setOnAction(e -> {
+			boolean result = AlertBox.dispay("Confirmation");
+			if (result == true){
+				window.close();
+			} 
+		});
+		
 		Label mainLabel = new Label("Welcome to Burrow Map");
 		
 		VBox layoutMain = new VBox(20);
-		layoutMain.getChildren().addAll(mainLabel, goToSearchButton);
-		mainPage = new Scene(layoutMain, 600, 300);
+		layoutMain.getChildren().addAll(mainLabel, goToSearchButton, closeButton);
+		mainPage = new Scene(layoutMain, 800, 600);
 		
 		startSearchButton = new Button();
 		startSearchButton.setText("Start the Search!");
@@ -294,18 +308,30 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		layoutSecond.getChildren().addAll(secondLabel, startSearchButton, backToMain);
 		secondPage = new Scene(layoutSecond, 600, 300);
 		
+		window.setOnCloseRequest(e -> {
+			e.consume();
+			boolean result = AlertBox.dispay("Confirmation");
+			if (result == true){
+				window.close();
+			}
+		});
+		
 		window.setScene(mainPage);
 		window.setTitle("Burrow Map");
 		window.show();
 	}
 	
+	//Scanner scan = new Scanner(System.in);
+	int start = 25;
+	//int end = 
+	
 	@Override
 	public void handle(ActionEvent event){
 		if(event.getSource() == startSearchButton){
-			final int [] previous = Dijkstra.dijkstra(lines, 53);
+			final int [] previous = Dijkstra.dijkstra(lines, start);
 			System.out.println("Searching: ````````````````````````````````````````````````");
 			for(int nodes = 0; nodes < 55; nodes++){
-				Dijkstra.printJourney(lines, previous, 53, nodes);
+				Dijkstra.printJourney(lines, previous, start, nodes);
 			}
 		}
 	}
