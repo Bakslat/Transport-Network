@@ -16,7 +16,6 @@ public class AlertBox {
 		
 		alertWindow.initModality(Modality.APPLICATION_MODAL);
 		alertWindow.setTitle(title);
-		alertWindow.setMaxWidth(350);
 		
 		Label label = new Label();
 		label.setText("Are you sure you want to close the program?");
@@ -39,7 +38,7 @@ public class AlertBox {
 		layout.getChildren().addAll(label, closeButton, remainButton);
 		layout.setAlignment(Pos.CENTER);
 		
-		Scene scene = new Scene(layout);
+		Scene scene = new Scene(layout, 300, 150);
 		alertWindow.setScene(scene);
 		alertWindow.showAndWait();
 		

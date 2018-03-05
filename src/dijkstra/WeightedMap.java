@@ -141,6 +141,16 @@ public class WeightedMap {
 		lines.setLabel(53, "King's Cross St. Pancras (Northern via Bank)");
 		lines.setLabel(54, "Euston (Northern via Bank)");
 		
+		//Victoria Line:
+		lines.setLabel(55, "Vauxhall (Victoria)");
+		lines.setLabel(56, "Pimlico (Victoria)");
+		lines.setLabel(57, "Victoria (Victoria)");
+		lines.setLabel(58, "Green Park (Victoria)");
+		lines.setLabel(59, "Oxford Circus (Victoria)");
+		lines.setLabel(60, "Warren Street (Victoria)");
+		lines.setLabel(61, "Euston (Victoria)");
+		lines.setLabel(62, "King's Cross St. Pancras (Victoria)");
+		
 		//Bakerloo Connections (Start, Finish, Weight):
 		lines.addEdge(0, 1, 2);
 		lines.addEdge(1, 0, 2);
@@ -250,56 +260,123 @@ public class WeightedMap {
 		lines.addEdge(53, 54, 2);
 		lines.addEdge(54, 53, 2);
 		
-		//Intersections
+		//Victoria connections (Start, Finish, Weight):
+		lines.addEdge(55, 56, 1);
+		lines.addEdge(56, 55, 1);
+		lines.addEdge(56, 57, 2);
+		lines.addEdge(57, 56, 2);
+		lines.addEdge(57, 58, 2);
+		lines.addEdge(58, 57, 2);
+		lines.addEdge(58, 59, 2);
+		lines.addEdge(59, 58, 2);
+		lines.addEdge(59, 60, 2);
+		lines.addEdge(60, 59, 2);
+		lines.addEdge(60, 61, 1);
+		lines.addEdge(61, 60, 1);
+		lines.addEdge(61, 62, 2);
+		lines.addEdge(62, 61, 2);
 		
+		//Intersections:
+		
+		//Elephant and Castle:
 		lines.addEdge(0, 46, 1);
 		lines.addEdge(46, 0, 1);
+		
+		//Waterloo:
 		lines.addEdge(2, 11, 1);
 		lines.addEdge(11, 2, 1);
 		lines.addEdge(2, 37, 1);
 		lines.addEdge(37, 2, 1);
 		lines.addEdge(11, 37, 1);
 		lines.addEdge(37, 11, 1);
+		
+		//Embankment:
 		lines.addEdge(3, 38, 1);
 		lines.addEdge(38, 3, 1);
+		
+		//Charing Cross:
 		lines.addEdge(4, 39, 1);
 		lines.addEdge(39, 4, 1);
+		
+		//Piccadilly Circus:
 		lines.addEdge(5, 17, 1);
 		lines.addEdge(17, 5, 1);
+		
+		//Oxford Circus:
 		lines.addEdge(6, 24, 1);
+		lines.addEdge(6, 59, 1);
 		lines.addEdge(24, 6, 1);
+		lines.addEdge(24, 59, 1);
+		lines.addEdge(59, 6, 1);
+		lines.addEdge(59, 24, 1);
+		
+		//Baker Street:
 		lines.addEdge(8, 15, 1);
 		lines.addEdge(15, 8, 1);
+		
+		//London Bridge:
 		lines.addEdge(9, 48, 1);
 		lines.addEdge(48, 9, 1);
+		
+		//Green Park:
 		lines.addEdge(13, 16, 1);
+		lines.addEdge(13, 58, 1);
 		lines.addEdge(16, 13, 1);
+		lines.addEdge(16, 58, 1);
+		lines.addEdge(58, 13, 1);
+		lines.addEdge(58, 16, 1);
+		
+		//Bond Street:
 		lines.addEdge(14, 23, 1);
 		lines.addEdge(23, 14, 1);
 		lines.addEdge(14, 32, 1);
 		lines.addEdge(32, 14, 1);
 		lines.addEdge(23, 32, 1);
 		lines.addEdge(32, 23, 1);
+		
+		//Leicester Square:
 		lines.addEdge(18, 40, 1);
 		lines.addEdge(40, 18, 1);
+		
+		//Holborn:
 		lines.addEdge(20, 26, 1);
 		lines.addEdge(26, 20, 1);
+		
+		//King's Cross St. Pancras:
 		lines.addEdge(22, 53, 1);
+		lines.addEdge(22, 62, 1);
 		lines.addEdge(53, 22, 1);
+		lines.addEdge(53, 62, 1);
+		lines.addEdge(62, 22, 1);
+		lines.addEdge(62, 53, 1);
+		
+		//Tottenham Court Road:
 		lines.addEdge(25, 33, 1);
 		lines.addEdge(33, 25, 1);
 		lines.addEdge(25, 41, 1);
 		lines.addEdge(41, 25, 1);
 		lines.addEdge(33, 41, 1);
 		lines.addEdge(41, 33, 1);
+		
+		//Bank:
 		lines.addEdge(29, 49, 1);
 		lines.addEdge(49, 29, 1);
+		
+		//Liverpool Street:
 		lines.addEdge(30, 35, 1);
 		lines.addEdge(35, 30, 1);
+		
+		//Kennington:
 		lines.addEdge(36, 45, 1);
 		lines.addEdge(45, 36, 1);
+		
+		//Euston:
 		lines.addEdge(44, 54, 1);
+		lines.addEdge(44, 61, 1);
 		lines.addEdge(54, 44, 1);
+		lines.addEdge(54, 61, 1);
+		lines.addEdge(61, 44, 1);
+		lines.addEdge(61, 54, 1);
 		
 		return lines;
 	}
