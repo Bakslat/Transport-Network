@@ -24,7 +24,7 @@ public class main extends Application implements EventHandler<ActionEvent> {
 	Button startSearchButton;
 	Scene secondPage;
 	
-	final static WeightedMap lines = new WeightedMap(63);
+	final static WeightedMap lines = new WeightedMap(82);
 
 	public static void main(String[] args) throws FileNotFoundException {
 		

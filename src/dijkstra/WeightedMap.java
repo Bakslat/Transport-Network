@@ -56,6 +56,7 @@ public class WeightedMap {
 		return answer;
 	}
 	
+	//Print the map
 	public void print(){
 		for(int i=0; i< edges.length; i++){
 			System.out.print(labels[i] + " has connection with"  + ": ");
@@ -70,6 +71,7 @@ public class WeightedMap {
 		}
 	}
 	
+	//Method to populate the map
 	public WeightedMap fillMap(WeightedMap lines){
 		
 		//Bakerloo Line:
@@ -90,7 +92,7 @@ public class WeightedMap {
 		lines.setLabel(12, "Westminster (Jubilee)");
 		lines.setLabel(13, "Green Park (Jubilee)");
 		lines.setLabel(14, "Bond Street (Jubilee)");
-		lines.setLabel(15, "(Baker Street (Jubilee)");
+		lines.setLabel(15, "Baker Street (Jubilee)");
 		
 		//Piccadilly Line:
 		lines.setLabel(16, "Green Park (Piccadilly)");
@@ -150,6 +152,27 @@ public class WeightedMap {
 		lines.setLabel(60, "Warren Street (Victoria)");
 		lines.setLabel(61, "Euston (Victoria)");
 		lines.setLabel(62, "King's Cross St. Pancras (Victoria)");
+		
+		//Stations (W/o lines):
+		lines.setLabel(63, "Elephant and Castle");
+		lines.setLabel(64, "Waterloo");
+		lines.setLabel(65, "Embankment");
+		lines.setLabel(66, "Charing Cross");
+		lines.setLabel(67, "Piccadilly Circus");
+		lines.setLabel(68, "Oxford Circus");
+		lines.setLabel(69, "Baker Street");
+		lines.setLabel(70, "London Bridge");
+		lines.setLabel(71, "Green Park");
+		lines.setLabel(72, "Bond Street");
+		lines.setLabel(73, "Leicester Square");
+		lines.setLabel(74, "Holborn");
+		lines.setLabel(75, "King's Cross St. Pancras");
+		lines.setLabel(76, "Tottenham Court Road");
+		lines.setLabel(77, "Bank");
+		lines.setLabel(78, "Liverpool Street");
+		lines.setLabel(79, "Kennington");
+		lines.setLabel(80, "Euston");
+		lines.setLabel(81, "Warren Street");
 		
 		//Bakerloo Connections (Start, Finish, Weight):
 		lines.addEdge(0, 1, 2);
@@ -280,107 +303,197 @@ public class WeightedMap {
 		
 		//Elephant and Castle:
 		lines.addEdge(0, 46, 1);
+		lines.addEdge(0, 63, 1);
 		lines.addEdge(46, 0, 1);
+		lines.addEdge(46, 63, 1);
+		lines.addEdge(63, 0, 1);
+		lines.addEdge(63, 46, 1);
 		
 		//Waterloo:
 		lines.addEdge(2, 11, 1);
-		lines.addEdge(11, 2, 1);
 		lines.addEdge(2, 37, 1);
-		lines.addEdge(37, 2, 1);
+		lines.addEdge(2, 64, 1);
+		lines.addEdge(11, 2, 1);
 		lines.addEdge(11, 37, 1);
+		lines.addEdge(11, 64, 1);
+		lines.addEdge(37, 2, 1);
 		lines.addEdge(37, 11, 1);
+		lines.addEdge(37, 64, 1);
+		lines.addEdge(64, 2, 1);
+		lines.addEdge(64, 11, 1);
+		lines.addEdge(64, 37, 1);
 		
 		//Embankment:
 		lines.addEdge(3, 38, 1);
+		lines.addEdge(3, 65, 1);
 		lines.addEdge(38, 3, 1);
+		lines.addEdge(38, 65, 1);
+		lines.addEdge(65, 3, 1);
+		lines.addEdge(65, 38, 1);
 		
 		//Charing Cross:
 		lines.addEdge(4, 39, 1);
+		lines.addEdge(4, 66, 1);
 		lines.addEdge(39, 4, 1);
+		lines.addEdge(39, 66, 1);
+		lines.addEdge(66, 4, 1);
+		lines.addEdge(66, 39, 1);
 		
 		//Piccadilly Circus:
 		lines.addEdge(5, 17, 1);
+		lines.addEdge(5, 67, 1);
 		lines.addEdge(17, 5, 1);
+		lines.addEdge(17, 67, 1);
+		lines.addEdge(67, 5, 1);
+		lines.addEdge(67, 17, 1);
 		
 		//Oxford Circus:
 		lines.addEdge(6, 24, 1);
 		lines.addEdge(6, 59, 1);
+		lines.addEdge(6, 68, 1);
 		lines.addEdge(24, 6, 1);
 		lines.addEdge(24, 59, 1);
+		lines.addEdge(24, 68, 1);
 		lines.addEdge(59, 6, 1);
 		lines.addEdge(59, 24, 1);
+		lines.addEdge(59, 68, 1);
+		lines.addEdge(68, 6, 1);
+		lines.addEdge(68, 24, 1);
+		lines.addEdge(68, 59, 1);
 		
 		//Baker Street:
 		lines.addEdge(8, 15, 1);
+		lines.addEdge(8, 69, 1);
 		lines.addEdge(15, 8, 1);
+		lines.addEdge(15, 69, 1);
+		lines.addEdge(69, 8, 1);
+		lines.addEdge(69, 15, 1);
 		
 		//London Bridge:
 		lines.addEdge(9, 48, 1);
+		lines.addEdge(9, 70, 1);
 		lines.addEdge(48, 9, 1);
+		lines.addEdge(48, 70, 1);
+		lines.addEdge(70, 9, 1);
+		lines.addEdge(70, 48, 1);
 		
 		//Green Park:
 		lines.addEdge(13, 16, 1);
 		lines.addEdge(13, 58, 1);
+		lines.addEdge(13, 71, 1);
 		lines.addEdge(16, 13, 1);
 		lines.addEdge(16, 58, 1);
+		lines.addEdge(16, 71, 1);
 		lines.addEdge(58, 13, 1);
 		lines.addEdge(58, 16, 1);
+		lines.addEdge(58, 71, 1);
+		lines.addEdge(71, 13, 1);
+		lines.addEdge(71, 16, 1);
+		lines.addEdge(71, 58, 1);
 		
 		//Bond Street:
 		lines.addEdge(14, 23, 1);
-		lines.addEdge(23, 14, 1);
 		lines.addEdge(14, 32, 1);
-		lines.addEdge(32, 14, 1);
+		lines.addEdge(14, 72, 1);
+		lines.addEdge(23, 14, 1);
 		lines.addEdge(23, 32, 1);
+		lines.addEdge(23, 72, 1);
+		lines.addEdge(32, 14, 1);
 		lines.addEdge(32, 23, 1);
+		lines.addEdge(32, 72, 1);
+		lines.addEdge(72, 14, 1);
+		lines.addEdge(72, 23, 1);
+		lines.addEdge(72, 32, 1);
 		
 		//Leicester Square:
 		lines.addEdge(18, 40, 1);
+		lines.addEdge(18, 73, 1);
 		lines.addEdge(40, 18, 1);
+		lines.addEdge(40, 73, 1);
+		lines.addEdge(73, 18, 1);
+		lines.addEdge(73, 40, 1);
 		
 		//Holborn:
 		lines.addEdge(20, 26, 1);
+		lines.addEdge(20, 74, 1);
 		lines.addEdge(26, 20, 1);
+		lines.addEdge(26, 74, 1);
+		lines.addEdge(74, 20, 1);
+		lines.addEdge(74, 26, 1);
 		
 		//King's Cross St. Pancras:
 		lines.addEdge(22, 53, 1);
 		lines.addEdge(22, 62, 1);
+		lines.addEdge(22, 75, 1);
 		lines.addEdge(53, 22, 1);
 		lines.addEdge(53, 62, 1);
+		lines.addEdge(53, 75, 1);
 		lines.addEdge(62, 22, 1);
 		lines.addEdge(62, 53, 1);
+		lines.addEdge(62, 75, 1);
+		lines.addEdge(75, 22, 1);
+		lines.addEdge(75, 53, 1);
+		lines.addEdge(75, 62, 1);
 		
 		//Tottenham Court Road:
 		lines.addEdge(25, 33, 1);
-		lines.addEdge(33, 25, 1);
 		lines.addEdge(25, 41, 1);
-		lines.addEdge(41, 25, 1);
+		lines.addEdge(26, 76, 1);
+		lines.addEdge(33, 25, 1);
 		lines.addEdge(33, 41, 1);
+		lines.addEdge(33, 76, 1);
+		lines.addEdge(41, 25, 1);
 		lines.addEdge(41, 33, 1);
+		lines.addEdge(41, 76, 1);
+		lines.addEdge(76, 25, 1);
+		lines.addEdge(76, 33, 1);
+		lines.addEdge(76, 41, 1);
 		
 		//Bank:
 		lines.addEdge(29, 49, 1);
+		lines.addEdge(29, 77, 1);
 		lines.addEdge(49, 29, 1);
+		lines.addEdge(49, 77, 1);
+		lines.addEdge(77, 29, 1);
+		lines.addEdge(77, 49, 1);
 		
 		//Liverpool Street:
 		lines.addEdge(30, 35, 1);
+		lines.addEdge(30, 78, 1);
 		lines.addEdge(35, 30, 1);
+		lines.addEdge(35, 78, 1);
+		lines.addEdge(78, 30, 1);
+		lines.addEdge(78, 35, 1);
 		
 		//Kennington:
 		lines.addEdge(36, 45, 1);
+		lines.addEdge(36, 79, 1);
 		lines.addEdge(45, 36, 1);
+		lines.addEdge(45, 79, 1);
+		lines.addEdge(79, 36, 1);
+		lines.addEdge(79, 45, 1);
 		
 		//Euston:
 		lines.addEdge(44, 54, 1);
 		lines.addEdge(44, 61, 1);
+		lines.addEdge(44, 80, 1);
 		lines.addEdge(54, 44, 1);
 		lines.addEdge(54, 61, 1);
+		lines.addEdge(54, 80, 1);
 		lines.addEdge(61, 44, 1);
 		lines.addEdge(61, 54, 1);
+		lines.addEdge(61, 80, 1);
+		lines.addEdge(80, 44, 1);
+		lines.addEdge(80, 54, 1);
+		lines.addEdge(80, 61, 1);
 		
 		//Warren Street
 		lines.addEdge(43, 60, 1);
+		lines.addEdge(43, 81, 1);
 		lines.addEdge(60, 43, 1);
+		lines.addEdge(60, 81, 1);
+		lines.addEdge(81, 43, 1);
+		lines.addEdge(81, 60, 1);
 		
 		return lines;
 	}
