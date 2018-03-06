@@ -23,15 +23,85 @@ public class SearchWindow {
 		ComboBox <String> endLoc = new ComboBox<>();
 		
 		startLoc.getItems().addAll(
+					"Angel", 
+					"Baker Street",
+					"Bank",
+					"Bond Street",
+					"Borough",
+					"Chancery Lane",
 					"Charing Cross",
-					"Embankment"
+					"Covent Garden",
+					"Elephant and Castle",
+					"Embankment",
+					"Euston",
+					"Farrington",
+					"Goodge Street",
+					"Green Park",
+					"Holborn",
+					"Kennington",
+					"King's Cross St. Pancras",
+					"Lambeth North",
+					"Leicester Square",
+					"Liverpool Street",
+					"London Bridge",
+					"Moorgate",
+					"Old Street",
+					"Oxford Circus",
+					"Paddington",
+					"Piccadilly Circus",
+					"Pimlico",
+					"Regent's Park",
+					"Russel Square",
+					"Southwark",
+					"St. Paul's",
+					"Tottenham Court Road",
+					"Vauxhall",
+					"Victoria",
+					"Warren Street",
+					"Waterloo",
+					"Westminster"
 				);
 		
 		startLoc.setPromptText("From: ");
 		
 		endLoc.getItems().addAll(
+				"Angel", 
+				"Baker Street",
+				"Bank",
+				"Bond Street",
+				"Borough",
+				"Chancery Lane",
 				"Charing Cross",
-				"Embankment"
+				"Covent Garden",
+				"Elephant and Castle",
+				"Embankment",
+				"Euston",
+				"Farrington",
+				"Goodge Street",
+				"Green Park",
+				"Holborn",
+				"Kennington",
+				"King's Cross St. Pancras",
+				"Lambeth North",
+				"Leicester Square",
+				"Liverpool Street",
+				"London Bridge",
+				"Moorgate",
+				"Old Street",
+				"Oxford Circus",
+				"Paddington",
+				"Piccadilly Circus",
+				"Pimlico",
+				"Regent's Park",
+				"Russel Square",
+				"Southwark",
+				"St. Paul's",
+				"Tottenham Court Road",
+				"Vauxhall",
+				"Victoria",
+				"Warren Street",
+				"Waterloo",
+				"Westminster"
 			);
 		
 		endLoc.setPromptText("To: ");
@@ -48,9 +118,11 @@ public class SearchWindow {
 			
 			switch (startLocation) {
 			
-				case "Charing Cross": origin  = 1;
+				case "Angel": origin  = 1;
 					break;
-				case "Embankment": origin = 2;
+				case "Baker Street": origin = 2;
+					break;
+				case "Bank": origin = 3;
 					break;
 			}
 			

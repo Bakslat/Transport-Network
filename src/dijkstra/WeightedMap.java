@@ -378,6 +378,10 @@ public class WeightedMap {
 		lines.addEdge(61, 44, 1);
 		lines.addEdge(61, 54, 1);
 		
+		//Warren Street
+		lines.addEdge(43, 60, 1);
+		lines.addEdge(60, 43, 1);
+		
 		return lines;
 	}
 }
