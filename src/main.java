@@ -3,14 +3,18 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 import javafx.event.*;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import view.AlertBox;
+import view.RealMap;
 import view.SearchWindow;
 import javafx.scene.control.Label;
 
@@ -58,11 +62,24 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		});
 		
 		Label mainLabel = new Label("Welcome to Burrow Map");
+		Label infoCreator = new Label("The program is created by Kristiyan Kalchev");
+		infoCreator.getStyleClass().add("label-info");
 		
-		VBox layoutMain = new VBox(20);
-		layoutMain.getChildren().addAll(mainLabel, goToSearchButton, closeButton);
-		layoutMain.setAlignment(Pos.CENTER);
-		Scene mainPage = new Scene(layoutMain, 600, 300);
+		
+		BorderPane mainPane = new BorderPane();
+		
+		VBox centreMain = new VBox(20);
+		centreMain.getChildren().addAll(mainLabel, goToSearchButton, closeButton);
+		centreMain.setAlignment(Pos.CENTER);
+		
+		HBox bottMain = new HBox (1);
+		bottMain.getChildren().add(infoCreator);
+		
+		mainPane.setCenter(centreMain);
+		mainPane.setBottom(bottMain);
+		mainPane.setPadding(new Insets(0,10,10,10));
+		
+		Scene mainPage = new Scene(mainPane, 600, 300);
 		
 		startSearchButton = new Button();
 		startSearchButton.setText("Start the Search!");
@@ -73,13 +90,24 @@ public class main extends Application implements EventHandler<ActionEvent> {
 			window.show();
 		});
 		
+		//Back Button
 		Button backToMain = new Button();
 		backToMain.setText("Return to Main Screen");
 		backToMain.setOnAction(e -> window.setScene(mainPage));
+		
+		//Map Button
+		Button mapShow = new Button();
+		mapShow.setText("Show Map");
+		mapShow.setOnAction(e -> {
+			window.hide();
+			RealMap.display();
+			window.show();
+		});
+		
 		Label secondLabel = new Label ("Search screen");
 		
 		VBox layoutSecond = new VBox(20);
-		layoutSecond.getChildren().addAll(secondLabel, startSearchButton, backToMain);
+		layoutSecond.getChildren().addAll(secondLabel, startSearchButton, mapShow, backToMain);
 		layoutSecond.setAlignment(Pos.CENTER);
 		secondPage = new Scene(layoutSecond, 600, 300);
 		
@@ -92,6 +120,7 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		});	
 		
 		mainPage.getStylesheets().add("MainTheme.css");
+		secondPage.getStylesheets().add("MainTheme.css");
 		
 		window.setScene(mainPage);
 		window.setTitle("Burrow Map");

@@ -3,6 +3,18 @@
 	
 	-fx-background-color: #ADD8E6;
 	-fx-font-family: "Times New Roman";
-	-fx-font-size : 12px;
+	-fx-font-size : 13px;
+	
+}
+
+.label{
+	
+	-fx-font-size: 18px;
+	
+}
+
+.label-info{
+	
+	-fx-font-size: 11px;
 	
 }
