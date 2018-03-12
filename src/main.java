@@ -61,6 +61,7 @@ public class main extends Application implements EventHandler<ActionEvent> {
 			} 
 		});
 		
+		
 		Label mainLabel = new Label("Welcome to Burrow Map");
 		Label infoCreator = new Label("The program is created by Kristiyan Kalchev");
 		infoCreator.getStyleClass().add("label-info");

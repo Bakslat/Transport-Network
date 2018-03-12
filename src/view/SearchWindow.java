@@ -114,8 +114,8 @@ public class SearchWindow {
 			String startLocation = getChoice(startLoc);
 			String endLocation = getChoice(endLoc);
 			
-			int origin = 0;
-			int destination= 0;
+			int origin = -1;
+			int destination= -1;
 			
 			switch (startLocation) {
 			
@@ -274,8 +274,15 @@ public class SearchWindow {
 					break;
 			}
 			
-			final int [] previous = Dijkstra.dijkstra(lines, origin);
-			Dijkstra.printJourney(lines, previous, origin, destination);
+			
+			if(origin == destination){
+				System.out.println("You are already here");
+			} else if (origin == -1 && destination == -1){
+				System.out.println("Please enter: Start and Finish");
+			} else {
+				final int [] previous = Dijkstra.dijkstra(lines, origin);
+				Dijkstra.printJourney(lines, previous, origin, destination);
+			}
 			
 			
 		});
