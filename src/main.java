@@ -90,7 +90,8 @@ public class main extends Application implements EventHandler<ActionEvent> {
 			if (result == true){
 				window.close();
 			}
-		});
+		});	
+		mainPage.getStylesheets().add("LightTheme.css");
 		
 		window.setScene(mainPage);
 		window.setTitle("Burrow Map");
