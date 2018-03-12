@@ -1,6 +1,8 @@
-@CHARSET "UTF-8";
 
 .root{
 	
+	-fx-background-color: #ADD8E6;
+	-fx-font-family: "Times New Roman";
+	-fx-font-size : 12px;
 	
 }

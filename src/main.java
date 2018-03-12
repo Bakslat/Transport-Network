@@ -17,7 +17,6 @@ import javafx.scene.control.Label;
 import dijkstra.Dijkstra;
 import dijkstra.TubeMap;
 import dijkstra.WeightedMap;
-import view.AlertBox;
 
 public class main extends Application implements EventHandler<ActionEvent> {
 	
@@ -47,9 +46,10 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		Button goToSearchButton = new Button();
 		goToSearchButton.setText("Start using our Search!");
 		goToSearchButton.setOnAction(e -> window.setScene(secondPage));
+		
+		//Close Button
 		Button closeButton = new Button();
 		closeButton.setText("Close the Application");
-		
 		closeButton.setOnAction(e -> {
 			boolean result = AlertBox.dispay("Confirmation");
 			if (result == true){
@@ -66,7 +66,6 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		
 		startSearchButton = new Button();
 		startSearchButton.setText("Start the Search!");
-		//startSearchButton.setOnAction(this);
 		
 		startSearchButton.setOnAction(e -> {
 			window.hide();
@@ -91,28 +90,18 @@ public class main extends Application implements EventHandler<ActionEvent> {
 				window.close();
 			}
 		});	
-		mainPage.getStylesheets().add("LightTheme.css");
+		
+		mainPage.getStylesheets().add("MainTheme.css");
 		
 		window.setScene(mainPage);
 		window.setTitle("Burrow Map");
 		window.show();
 	}
-	
-	//Scanner scan = new Scanner(System.in);
-	int start = 25; // Tottenham Court Road
-	int end = 11; //Waterloo
-	
+
 	@Override
-	public void handle(ActionEvent event){
-		if(event.getSource() == startSearchButton){
-			final int [] previous = Dijkstra.dijkstra(lines, start);
-			System.out.println("Searching: ````````````````````````````````````````````````");
-			for(int nodes = 0; nodes < 55; nodes++){
-				Dijkstra.printJourney(lines, previous, start, nodes);
-				
-			//Dijkstra.printJourney(lines, previous, start, end);
-			}
-		}
+	public void handle(ActionEvent event) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
