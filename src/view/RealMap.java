@@ -17,6 +17,7 @@ public class RealMap {
 	public static void display(){
 	
 		Stage mapWindow = new Stage();
+		mapWindow.setTitle("Map");
 		
 		StackPane layoutPicture = new StackPane();
 		
@@ -34,13 +35,15 @@ public class RealMap {
 	    mainLayout.setTop(null);
 	    mainLayout.setPadding(new Insets(0,0,20,0));
 	    
-	    //Image image = new Image("file:///C:/Users/PC-Admin/git/Transport-Network/MapReal.png");
-	    Image image = new Image("file:///home/k1502723/git/Transport-Network/MapReal.png");
+	    Image image = new Image("file:///C:/Users/PC-Admin/git/Transport-Network/MapReal.png");
+	    //Image image = new Image("file:///home/k1502723/git/Transport-Network/MapReal.png");
 	    ImageView imgview = new ImageView(image);
 		
 	    layoutPicture.getChildren().add(imgview);
 		
 		Scene scene = new Scene(mainLayout, 790, 900);
+		scene.getStylesheets().add("MapWindow.css");
+		
 		mapWindow.setScene(scene);
 		mapWindow.showAndWait();
 		

@@ -39,6 +39,8 @@ public class AlertBox {
 		layout.setAlignment(Pos.CENTER);
 		
 		Scene scene = new Scene(layout, 300, 150);
+		scene.getStylesheets().add("AlertBox.css");
+		
 		alertWindow.setScene(scene);
 		alertWindow.showAndWait();
 		

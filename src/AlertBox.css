@@ -1,0 +1,14 @@
+
+.root {
+	
+	-fx-background-color: #D3D3D3;
+	-fx-font-family: "Times New Roman";
+	-fx-font-size : 15px;
+	
+}
+
+.button{
+  
+  -fx-effect: dropshadow( one-pass-box , black , 8 , 0.0 , 2 , 0 );
+  
+}

@@ -111,8 +111,19 @@ public class SearchWindow {
 		startSearch.setText("Search!");
 		startSearch.setOnAction(e -> {
 			
+			
 			String startLocation = getChoice(startLoc);
 			String endLocation = getChoice(endLoc);
+			
+			
+			if (startLocation == null){
+				System.out.println("Please insert a starting location");
+			}
+			
+			if (endLocation == null){
+				System.out.println("Please insert a destination");
+			}
+			
 			
 			int origin = -1;
 			int destination= -1;
@@ -291,13 +302,16 @@ public class SearchWindow {
 		backButton.setText("Back to Menu");
 		backButton.setOnAction(e -> searchWindow.close());
 		
-		Label top = new Label("Choose start and destination:");
+		Label top = new Label("Choose starting location and destination:");
+		top.getStyleClass().add("label-info");
 		
 		VBox layout = new VBox(20);
 		layout.getChildren().addAll(top, startLoc, endLoc, startSearch, backButton);
 		layout.setAlignment(Pos.CENTER);
 		
 		Scene scene = new Scene(layout, 600, 300);
+		scene.getStylesheets().add("SearchWindow.css");
+		
 		searchWindow.setScene(scene);
 		searchWindow.showAndWait();
 		
