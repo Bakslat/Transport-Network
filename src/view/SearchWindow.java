@@ -4,6 +4,9 @@ import javafx.stage.*;
 import javafx.scene.*;
 import javafx.scene.layout.*;
 import javafx.scene.control.*;
+
+import java.util.ArrayList;
+
 import dijkstra.Dijkstra;
 import dijkstra.WeightedMap;
 import javafx.geometry.*;
@@ -106,6 +109,15 @@ public class SearchWindow {
 			);
 		
 		endLoc.setPromptText("To: ");
+		
+		
+		TextArea searchResults = new TextArea();
+		searchResults.setText("");
+		searchResults.setPromptText("Your result");
+		searchResults.setEditable(false);
+		searchResults.setWrapText(true);
+		searchResults.setPrefColumnCount(3);
+		searchResults.setPrefRowCount(3);
 		
 		Button startSearch = new Button();
 		startSearch.setText("Search!");
@@ -295,6 +307,13 @@ public class SearchWindow {
 				Dijkstra.printJourney(lines, previous, origin, destination);
 			}
 			
+			final int [] previous = Dijkstra.dijkstra(lines, origin);
+			ArrayList result = Dijkstra.getPath(lines, previous, origin, destination);
+			
+			String finalResult = String.valueOf(result);
+			System.out.println(finalResult);
+			
+			searchResults.setText("The path from: " + startLocation + " to " + endLocation + " is: " + "\n" + finalResult);
 			
 		});
 		
@@ -306,10 +325,10 @@ public class SearchWindow {
 		top.getStyleClass().add("label-info");
 		
 		VBox layout = new VBox(20);
-		layout.getChildren().addAll(top, startLoc, endLoc, startSearch, backButton);
+		layout.getChildren().addAll(top, startLoc, endLoc, startSearch, backButton, searchResults);
 		layout.setAlignment(Pos.CENTER);
 		
-		Scene scene = new Scene(layout, 600, 300);
+		Scene scene = new Scene(layout, 800, 400);
 		scene.getStylesheets().add("SearchWindow.css");
 		
 		searchWindow.setScene(scene);

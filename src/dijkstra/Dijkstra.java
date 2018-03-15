@@ -60,5 +60,18 @@ public class Dijkstra {
 		System.out.println(path);
 	}
 	
+	public static ArrayList getPath (WeightedMap Map, int [] previous, int start, int end){
+		final ArrayList path = new ArrayList();
+		int x = end;
+		while(x != start){
+			path.add(0, Map.getLabel(x));
+			x = previous[x];
+		}
+		
+		path.add(0, Map.getLabel(start));
+		
+		return path;
+	}
+	
 	
 }
