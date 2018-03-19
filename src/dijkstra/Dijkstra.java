@@ -73,5 +73,23 @@ public class Dijkstra {
 		return path;
 	}
 	
+	public static int getCost (WeightedMap Map, int [] previous, int start, int end){
+		final ArrayList path = new ArrayList();
+		int x = end;
+		int cost = 0;
+		
+		while(x != start){
+			path.add(0, Map.getLabel(x));
+			int y = x;
+			x = previous[x];
+			
+			int temp = Map.getWeight(y, x);
+			cost = cost + temp;
+		}
+		
+		path.add(0, Map.getLabel(start));
+		return cost;
+	}
+	
 	
 }

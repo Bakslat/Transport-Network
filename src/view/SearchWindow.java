@@ -309,11 +309,14 @@ public class SearchWindow {
 			
 			final int [] previous = Dijkstra.dijkstra(lines, origin);
 			ArrayList result = Dijkstra.getPath(lines, previous, origin, destination);
+			int costTime = Dijkstra.getCost(lines, previous, origin, destination);
 			
 			String finalResult = String.valueOf(result);
 			System.out.println(finalResult);
+			System.out.println(costTime);
 			
-			searchResults.setText("The path from: " + startLocation + " to " + endLocation + " is: " + "\n" + finalResult);
+			searchResults.setText("The path from: " + startLocation + " to " + endLocation + " is: " + "\n" + finalResult + "\n" + ""
+					+ "With time:  " + costTime);
 			
 		});
 		
