@@ -41,7 +41,7 @@ public class RealMap {
 		
 	    layoutPicture.getChildren().add(imgview);
 		
-		Scene scene = new Scene(mainLayout, 790, 900);
+		Scene scene = new Scene(mainLayout, 850, 900);
 		scene.getStylesheets().add("MapWindow.css");
 		
 		mapWindow.setScene(scene);
