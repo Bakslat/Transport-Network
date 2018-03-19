@@ -14,6 +14,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import view.AlertBox;
+import view.ExperimentalJourney;
 import view.RealMap;
 import view.SearchWindow;
 import javafx.scene.control.Label;
@@ -51,6 +52,14 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		goToSearchButton.setText("Start using our Search!");
 		goToSearchButton.setOnAction(e -> window.setScene(secondPage));
 		
+		Button goToExperimental = new Button();
+		goToExperimental.setText("Experimental Journey Planner");
+		goToExperimental.setOnAction(e -> {
+			window.hide();
+			ExperimentalJourney.display();
+			window.show();
+		});
+		
 		//Close Button
 		Button closeButton = new Button();
 		closeButton.setText("Close the Application");
@@ -70,7 +79,7 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		BorderPane mainPane = new BorderPane();
 		
 		VBox centreMain = new VBox(20);
-		centreMain.getChildren().addAll(mainLabel, goToSearchButton, closeButton);
+		centreMain.getChildren().addAll(mainLabel, goToSearchButton, goToExperimental, closeButton);
 		centreMain.setAlignment(Pos.CENTER);
 		
 		HBox bottMain = new HBox (1);
