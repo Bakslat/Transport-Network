@@ -71,6 +71,24 @@ public class WeightedMap {
 		}
 	}
 	
+	//King's Cross to London Bridge
+	public WeightedMap addOption1 (WeightedMap lines){
+		
+		lines.addEdge(75, 70, 5);
+		lines.addEdge(70, 75, 5);
+		
+		return lines;
+	}
+	
+	//King's Cross to Liverpool Street
+	public WeightedMap addOption2 (WeightedMap lines){
+		
+		lines.addEdge(75, 78, 4);
+		lines.addEdge(78, 75, 4);
+		
+		return lines;
+	}
+	
 	//Method to populate the map
 	public WeightedMap fillMap(WeightedMap lines){
 		

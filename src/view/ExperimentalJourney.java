@@ -1,5 +1,6 @@
 package view;
 
+import dijkstra.WeightedMap;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -11,6 +12,7 @@ import javafx.stage.*;
 
 public class ExperimentalJourney {
 
+	final static WeightedMap lines = new WeightedMap(82);
 	
 	public static void display(){
 		
@@ -40,9 +42,26 @@ public class ExperimentalJourney {
 		
 		CheckBox choice1 = new CheckBox("King's Cross St. Pancras to London Bridge");
 		CheckBox choice2 = new CheckBox("King's Cross St. Pancras to Liverpool Street");
+	
+		lines.fillMap(lines);
 		
 		Button addChoices = new Button();
 		addChoices.setText("Add and proceed");
+		addChoices.setOnAction(e -> {
+			
+			if(choice1.isSelected() == true){
+				System.out.println("First option is selected");
+				lines.addOption1(lines);
+			}
+			
+			if(choice2.isSelected() == true){
+				System.out.println("Second option is selected");
+				lines.addOption2(lines);
+			}
+			
+			lines.print();
+			
+		});
 		
 		Button goBack = new Button();
 		goBack.setText("Back");
@@ -61,7 +80,4 @@ public class ExperimentalJourney {
 		Experimental.showAndWait();
 		
 	}
-	
-	
-	
 }
