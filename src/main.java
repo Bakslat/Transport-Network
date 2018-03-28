@@ -32,6 +32,8 @@ public class main extends Application implements EventHandler<ActionEvent> {
 
 	public static void main(String[] args) throws FileNotFoundException {
 		
+		System.setProperty("glass.accessible.force", "false");
+		
 		lines.fillMap(lines);
 		TubeMap map = new TubeMap("Map.txt");
 		System.out.println(map.getLines());
@@ -40,7 +42,7 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		lines.print();
 		
 		launch(args);
-		
+		                                                                                           
 	}
 	
 	@Override
@@ -50,10 +52,12 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		
 		Button goToSearchButton = new Button();
 		goToSearchButton.setText("Start using our Search!");
+		goToSearchButton.setMaxWidth(250);
 		goToSearchButton.setOnAction(e -> window.setScene(secondPage));
 		
 		Button goToExperimental = new Button();
 		goToExperimental.setText("Experimental Journey Planner");
+		goToExperimental.setMaxWidth(250);
 		goToExperimental.setOnAction(e -> {
 			window.hide();
 			ExperimentalJourney.display();
@@ -63,6 +67,7 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		//Close Button
 		Button closeButton = new Button();
 		closeButton.setText("Close the Application");
+		closeButton.setMaxWidth(150);
 		closeButton.setOnAction(e -> {
 			boolean result = AlertBox.dispay("Confirmation");
 			if (result == true){
@@ -92,6 +97,7 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		Scene mainPage = new Scene(mainPane, 600, 300);
 		
 		startSearchButton = new Button();
+		startSearchButton.setMaxWidth(150);
 		startSearchButton.setText("Start the Search!");
 		
 		startSearchButton.setOnAction(e -> {
@@ -103,11 +109,13 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		//Back Button
 		Button backToMain = new Button();
 		backToMain.setText("Return to Main Screen");
+		backToMain.setMaxWidth(150);
 		backToMain.setOnAction(e -> window.setScene(mainPage));
 		
 		//Map Button
 		Button mapShow = new Button();
 		mapShow.setText("Show Map");
+		mapShow.setMaxWidth(150);
 		mapShow.setOnAction(e -> {
 			window.hide();
 			RealMap.display();

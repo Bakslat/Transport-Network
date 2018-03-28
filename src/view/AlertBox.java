@@ -22,6 +22,7 @@ public class AlertBox {
 		
 		Button closeButton = new Button();
 		closeButton.setText("Yes!");
+		closeButton.setMaxWidth(50);
 		closeButton.setOnAction(e -> {
 			answer = true;
 			alertWindow.close();
@@ -29,6 +30,7 @@ public class AlertBox {
 		
 		Button remainButton = new Button();
 		remainButton.setText("No!");
+		remainButton.setMaxWidth(50);
 		remainButton.setOnAction(e -> {
 			answer = false;
 			alertWindow.close();

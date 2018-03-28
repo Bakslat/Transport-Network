@@ -22,6 +22,7 @@ public class ExperimentalJourney {
 	public static void display(){
 		
 		Stage Experimental = new Stage();
+		Experimental.setTitle("Experimental Journey Planner");
 		
 		Label infoLabel = new Label("This is an a fucntion in which the user can select predefined links to be inculed \n"
 				+ "in the new Map which can help see how different new links can decrease or increase the time for a Journey");
@@ -30,9 +31,11 @@ public class ExperimentalJourney {
 		
 		Button proceed = new Button();
 		proceed.setText("Proceed");
+		proceed.setMaxWidth(150);
 		
 		Button backToMain = new Button();
 		backToMain.setText("Back to main menu");
+		backToMain.setMaxWidth(150);
 		backToMain.setOnAction(e -> Experimental.close());
 		
 		VBox infoLayout = new VBox(20);
@@ -52,9 +55,11 @@ public class ExperimentalJourney {
 		
 		Button addChoices = new Button();
 		addChoices.setText("Add and proceed");
+		addChoices.setMaxWidth(125);
 		
 		Button goBack = new Button();
 		goBack.setText("Back");
+		goBack.setMaxWidth(125);
 		goBack.setOnAction(e -> Experimental.setScene(infoPage));
 		
 		VBox choicesLayout = new VBox (15);
@@ -164,6 +169,7 @@ public class ExperimentalJourney {
 		
 		Button startSearch = new Button();
 		startSearch.setText("Search!");
+		startSearch.setMaxWidth(100);
 		startSearch.setOnAction(e -> {
 			
 			String startLocation = getChoice(startLoc);
@@ -364,6 +370,7 @@ public class ExperimentalJourney {
 		
 		Button backButton = new Button();
 		backButton.setText("Back to Menu");
+		backButton.setMaxWidth(100);
 		backButton.setOnAction(e -> Experimental.setScene(choices));
 		
 		Label topSearch = new Label("Choose starting location and destination:");

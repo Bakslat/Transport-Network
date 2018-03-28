@@ -121,6 +121,7 @@ public class SearchWindow {
 		
 		Button startSearch = new Button();
 		startSearch.setText("Search!");
+		startSearch.setMaxWidth(100);
 		startSearch.setOnAction(e -> {
 			
 			
@@ -322,6 +323,7 @@ public class SearchWindow {
 		
 		Button backButton = new Button();
 		backButton.setText("Back to Menu");
+		backButton.setMaxWidth(100);
 		backButton.setOnAction(e -> searchWindow.close());
 		
 		Label top = new Label("Choose starting location and destination:");
