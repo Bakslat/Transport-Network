@@ -71,11 +71,11 @@ public class WeightedMap {
 		}
 	}
 	
-	//King's Cross to London Bridge
+	//King's Cross to Waterloo
 	public WeightedMap addOption1 (WeightedMap lines){
 		
-		lines.addEdge(75, 70, 5);
-		lines.addEdge(70, 75, 5);
+		lines.addEdge(75, 64, 5);
+		lines.addEdge(64, 75, 5);
 		
 		return lines;
 	}
@@ -85,6 +85,51 @@ public class WeightedMap {
 		
 		lines.addEdge(75, 78, 4);
 		lines.addEdge(78, 75, 4);
+		
+		return lines;
+	}
+	
+	//King's Cross to Victoria
+	public WeightedMap addOption3 (WeightedMap lines) {
+		
+		lines.addEdge(75, 57, 4);
+		lines.addEdge(57, 75, 4);
+		
+		return lines;
+	}
+	
+	//King's Cross to Oxford Cirucs
+	public WeightedMap addOption4 (WeightedMap lines) {
+		
+		lines.addEdge(75, 68, 3);
+		lines.addEdge(68, 75, 3);
+		
+		return lines;
+	}
+	
+	//Waterloo to Liverpool Street
+	public WeightedMap addOption5 (WeightedMap lines) {
+		
+		lines.addEdge(64, 78, 4);
+		lines.addEdge(78, 64, 4);
+		
+		return lines;
+	}
+	
+	//Waterloo to Victoria
+	public WeightedMap addOption6 (WeightedMap lines) { 
+		
+		lines.addEdge(64, 57, 3);
+		lines.addEdge(57, 64, 3);
+		
+		return lines;
+	}
+	
+	//Victoria to Liverpool Street
+	public WeightedMap addOption7 (WeightedMap lines) {
+		
+		lines.addEdge(57, 78, 5);
+		lines.addEdge(78, 57, 5);
 		
 		return lines;
 	}

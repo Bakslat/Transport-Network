@@ -316,8 +316,8 @@ public class SearchWindow {
 			System.out.println(finalResult);
 			System.out.println(costTime);
 			
-			searchResults.setText("The path from: " + startLocation + " to " + endLocation + " is: " + "\n" + finalResult + "\n" + ""
-					+ "With time:  " + costTime);
+			searchResults.setText("The fastest route from: " + startLocation + " to " + endLocation + " is: " + "\n" + finalResult + "\n" + ""
+					+ "Average time of the Journey:  " + costTime + " minutes");
 			
 		});
 		
@@ -326,7 +326,7 @@ public class SearchWindow {
 		backButton.setMaxWidth(100);
 		backButton.setOnAction(e -> searchWindow.close());
 		
-		Label top = new Label("Choose starting location and destination:");
+		Label top = new Label("Choose starting a location and a destination:");
 		top.getStyleClass().add("label-info");
 		
 		VBox layout = new VBox(20);

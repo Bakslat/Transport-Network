@@ -19,6 +19,7 @@ public class AlertBox {
 		
 		Label label = new Label();
 		label.setText("Are you sure you want to close the program?");
+		label.getStyleClass().add("label-info");
 		
 		Button closeButton = new Button();
 		closeButton.setText("Yes!");
@@ -48,6 +49,4 @@ public class AlertBox {
 		
 		return answer;
 	}
-	
-	
 }

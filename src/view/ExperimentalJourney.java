@@ -18,6 +18,7 @@ import javafx.stage.*;
 public class ExperimentalJourney {
 
 	final static WeightedMap lines = new WeightedMap(82);
+	final static WeightedMap linesReal = new WeightedMap(82);
 	
 	public static void display(){
 		
@@ -42,16 +43,23 @@ public class ExperimentalJourney {
 		infoLayout.getChildren().addAll(infoLabel, proceed, backToMain);
 		infoLayout.setAlignment(Pos.CENTER);
 		
-		Scene infoPage = new Scene(infoLayout, 700, 300);
+		Scene infoPage = new Scene(infoLayout, 800, 300);
 		infoPage.getStylesheets().add("ExperimentalMain.css");
 		
 		Label labelChoices = new Label("Choose which experimental links you want to add to the Journey Planner: ");
 		labelChoices.getStyleClass().add("label-info");
 		
-		CheckBox choice1 = new CheckBox("King's Cross St. Pancras to London Bridge");
+		CheckBox choice1 = new CheckBox("King's Cross St. Pancras to Waterloo");
 		CheckBox choice2 = new CheckBox("King's Cross St. Pancras to Liverpool Street");
+		CheckBox choice3 = new CheckBox("King's Cross St. Pancras to Victoria");
+		CheckBox choice4 = new CheckBox("King's Cross St. Pancras to Oxford Circus");
+		CheckBox choice5 = new CheckBox("Waterloo to Liverpool Street");
+		CheckBox choice6 = new CheckBox("Waterloo to Victoria");
+		CheckBox choice7 = new CheckBox("Victoria to Liverpool Street");
+		
 	
 		lines.fillMap(lines);
+		linesReal.fillMap(linesReal);
 		
 		Button addChoices = new Button();
 		addChoices.setText("Add and proceed");
@@ -63,10 +71,10 @@ public class ExperimentalJourney {
 		goBack.setOnAction(e -> Experimental.setScene(infoPage));
 		
 		VBox choicesLayout = new VBox (15);
-		choicesLayout.getChildren().addAll(labelChoices, choice1, choice2, addChoices, goBack);
+		choicesLayout.getChildren().addAll(labelChoices, choice1, choice2, choice3, choice4, choice5, choice6, choice7, addChoices, goBack);
 		choicesLayout.setAlignment(Pos.CENTER);
 		
-		Scene choices = new Scene(choicesLayout, 700, 300);
+		Scene choices = new Scene(choicesLayout, 700, 400);
 		choices.getStylesheets().add("ExperimentalMain.css");
 		
 		proceed.setOnAction(e -> Experimental.setScene(choices));
@@ -159,13 +167,27 @@ public class ExperimentalJourney {
 		
 		endLoc.setPromptText("To: ");
 		
+		Label infoText = new Label();
+		infoText.setText("The result with the new links: ");
+		
+		Label infoTextReal = new Label();
+		infoTextReal.setText("The result without the new links: ");
+		
 		TextArea searchResults = new TextArea();
 		searchResults.setText("");
-		searchResults.setPromptText("Your result");
+		searchResults.setPromptText("Result with the new link(s)");
 		searchResults.setEditable(false);
 		searchResults.setWrapText(true);
 		searchResults.setPrefColumnCount(3);
 		searchResults.setPrefRowCount(3);
+		
+		TextArea realResults = new TextArea();
+		realResults.setText("");
+		realResults.setPromptText("Result without the new link(s)");
+		realResults.setEditable(false);
+		realResults.setWrapText(true);
+		realResults.setPrefColumnCount(3);
+		realResults.setPrefRowCount(3);
 		
 		Button startSearch = new Button();
 		startSearch.setText("Search!");
@@ -359,12 +381,21 @@ public class ExperimentalJourney {
 			ArrayList result = Dijkstra.getPath(lines, previous, origin, destination);
 			int costTime = Dijkstra.getCost(lines, previous, origin, destination);
 			
+			final int[] previousReal = Dijkstra.dijkstra(linesReal, origin);
+			ArrayList listReal = Dijkstra.getPath(linesReal, previousReal, origin, destination);
+			int costTimeReal = Dijkstra.getCost(linesReal, previousReal, origin, destination);
+			
 			String finalResult = String.valueOf(result);
 			System.out.println(finalResult);
 			System.out.println(costTime);
 			
-			searchResults.setText("The path from: " + startLocation + " to " + endLocation + " is: " + "\n" + finalResult + "\n" + ""
-					+ "With time:  " + costTime);
+			String finalResultReal = String.valueOf(listReal);
+			
+			searchResults.setText("The fastest route from: " + startLocation + " to " + endLocation + " is: " + "\n" + finalResult + "\n" + ""
+					+ "Average time of the Journey:  " + costTime + " minutes");
+			
+			realResults.setText("The fastest route from: " + startLocation + " to " + endLocation + " is: " + "\n" + finalResultReal + "\n" + ""
+					+ "Average time of the Journey:  " + costTimeReal + " minutes");
 			
 		});
 		
@@ -373,14 +404,14 @@ public class ExperimentalJourney {
 		backButton.setMaxWidth(100);
 		backButton.setOnAction(e -> Experimental.setScene(choices));
 		
-		Label topSearch = new Label("Choose starting location and destination:");
+		Label topSearch = new Label("Choose starting a location and a destination:");
 		topSearch.getStyleClass().add("label-info");
 		
 		VBox searchLayout = new VBox(20);
-		searchLayout.getChildren().addAll(topSearch, startLoc, endLoc, startSearch, backButton, searchResults);
+		searchLayout.getChildren().addAll(topSearch, startLoc, endLoc, startSearch, backButton, infoText, searchResults, infoTextReal, realResults);
 		searchLayout.setAlignment(Pos.CENTER);
 		
-		Scene searchScene = new Scene(searchLayout, 800, 400);
+		Scene searchScene = new Scene(searchLayout, 800, 600);
 		searchScene.getStylesheets().add("SearchWindow.css");
 		
 		addChoices.setOnAction(e -> {
@@ -395,8 +426,32 @@ public class ExperimentalJourney {
 						lines.addOption2(lines);
 					}
 					
-					lines.print();
+					if(choice3.isSelected() == true){
+						System.out.println("Third option is selected");
+						lines.addOption3(lines);
+					}
 					
+					if(choice4.isSelected() == true){
+						System.out.println("Fourth option is selected");
+						lines.addOption4(lines);
+					}
+					
+					if(choice5.isSelected() == true){
+						System.out.println("Fifth option is selected");
+						lines.addOption5(lines);
+					}
+					
+					if(choice6.isSelected() == true){
+						System.out.println("Sixth option is selected");
+						lines.addOption6(lines);
+					}
+					
+					if(choice7.isSelected() == true){
+						System.out.println("Seventh option is selected");
+						lines.addOption7(lines);
+					}
+					
+					lines.print();
 					Experimental.setScene(searchScene);
 					
 				});

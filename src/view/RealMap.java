@@ -35,9 +35,9 @@ public class RealMap {
 	    mainLayout.setTop(null);
 	    mainLayout.setPadding(new Insets(0,0,20,0));
 	    
-	    //Image image = new Image("file:///C:/Users/PC-Admin/git/Transport-Network/MapReal.png");
-	    Image image = new Image("file:///home/k1502723/git/Transport-Network/MapReal.png");
+	    Image image = new Image("MapReal.png");
 	    ImageView imgview = new ImageView(image);
+	    
 		
 	    layoutPicture.getChildren().add(imgview);
 		
@@ -49,6 +49,4 @@ public class RealMap {
 		
 		
 	}
-	
-	
 }

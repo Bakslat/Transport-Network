@@ -48,11 +48,13 @@ public class Dijkstra {
 	}
 	
 	public static void printJourney (WeightedMap Map, int [] previous, int start, int end){
+		
 		final ArrayList path = new ArrayList();
-		int x = end;
-		while(x != start){
-			path.add(0, Map.getLabel(x));
-			x = previous[x];
+		int current = end;
+		
+		while(current != start){
+			path.add(0, Map.getLabel(current));
+			current = previous[current];
 		}
 		
 		path.add(0, Map.getLabel(start));
@@ -61,29 +63,30 @@ public class Dijkstra {
 	}
 	
 	public static ArrayList getPath (WeightedMap Map, int [] previous, int start, int end){
+		
 		final ArrayList path = new ArrayList();
-		int x = end;
-		while(x != start){
-			path.add(0, Map.getLabel(x));
-			x = previous[x];
+		int current = end;
+		
+		while(current != start){
+			path.add(0, Map.getLabel(current));
+			current = previous[current];
 		}
 		
 		path.add(0, Map.getLabel(start));
-		
 		return path;
 	}
 	
 	public static int getCost (WeightedMap Map, int [] previous, int start, int end){
 		final ArrayList path = new ArrayList();
-		int x = end;
+		int current = end;
 		int cost = 0;
 		
-		while(x != start){
-			path.add(0, Map.getLabel(x));
-			int y = x;
-			x = previous[x];
+		while(current != start){
+			path.add(0, Map.getLabel(current));
+			int y = current;
+			current = previous[current];
 			
-			int temp = Map.getWeight(y, x);
+			int temp = Map.getWeight(y, current);
 			cost = cost + temp;
 		}
 		

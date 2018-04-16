@@ -20,7 +20,6 @@ import view.SearchWindow;
 import javafx.scene.control.Label;
 
 import dijkstra.Dijkstra;
-import dijkstra.TubeMap;
 import dijkstra.WeightedMap;
 
 public class main extends Application implements EventHandler<ActionEvent> {
@@ -35,8 +34,6 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		System.setProperty("glass.accessible.force", "false");
 		
 		lines.fillMap(lines);
-		TubeMap map = new TubeMap("Map.txt");
-		System.out.println(map.getLines());
 		
 		//Print the map
 		lines.print();
@@ -51,7 +48,7 @@ public class main extends Application implements EventHandler<ActionEvent> {
 		Stage window = primaryStage;
 		
 		Button goToSearchButton = new Button();
-		goToSearchButton.setText("Start using our Search!");
+		goToSearchButton.setText("Journey Planner");
 		goToSearchButton.setMaxWidth(250);
 		goToSearchButton.setOnAction(e -> window.setScene(secondPage));
 		
@@ -122,7 +119,7 @@ public class main extends Application implements EventHandler<ActionEvent> {
 			window.show();
 		});
 		
-		Label secondLabel = new Label ("Search screen");
+		Label secondLabel = new Label ("Traditional Journey Planner");
 		
 		VBox layoutSecond = new VBox(20);
 		layoutSecond.getChildren().addAll(secondLabel, startSearchButton, mapShow, backToMain);
